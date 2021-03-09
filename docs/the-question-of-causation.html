@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 13 The Question of Causation | PASSION-DRIVEN STATISTICS</title>
+  <meta name="description" content="This book presents the NSF-funded Passion-Driven Statistics curriculum." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 13 The Question of Causation | PASSION-DRIVEN STATISTICS" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book presents the NSF-funded Passion-Driven Statistics curriculum." />
+  <meta name="github-repo" content="rstudio/bookdown-passiondrivenstatistics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 13 The Question of Causation | PASSION-DRIVEN STATISTICS" />
+  
+  <meta name="twitter:description" content="This book presents the NSF-funded Passion-Driven Statistics curriculum." />
+  
+
+<meta name="author" content="Lisa Dierker" />
+
+
+<meta name="date" content="2021-03-09" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="moderation.html"/>
+<link rel="next" href="multivariate-modeling.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Passion-Driven Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#i.-the-project-based-model"><i class="fa fa-check"></i>i. the project-based model</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ii.-supporting-research"><i class="fa fa-check"></i>ii. supporting research</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#iii.-using-the-e-book"><i class="fa fa-check"></i>iii. using the e-book</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#overview"><i class="fa fa-check"></i><b>1.1</b> <span style="color: firebrick;">Overview</span></a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#lesson"><i class="fa fa-check"></i><b>1.2</b> <span style="color: firebrick;">Lesson</span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-and-code-books.html"><a href="data-and-code-books.html"><i class="fa fa-check"></i><b>2</b> Data and Code Books</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-and-code-books.html"><a href="data-and-code-books.html#overview-1"><i class="fa fa-check"></i><b>2.1</b> <span style="color: deepskyblue;">Overview</span></a></li>
+<li class="chapter" data-level="2.2" data-path="data-and-code-books.html"><a href="data-and-code-books.html#lesson-1"><i class="fa fa-check"></i><b>2.2</b> <span style="color: deepskyblue;">Lesson</span></a></li>
+<li class="chapter" data-level="2.3" data-path="data-and-code-books.html"><a href="data-and-code-books.html#assignment"><i class="fa fa-check"></i><b>2.3</b> <span style="color: deepskyblue;">Assignment</span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="literature-review.html"><a href="literature-review.html"><i class="fa fa-check"></i><b>3</b> Literature Review</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="literature-review.html"><a href="literature-review.html#overview-2"><i class="fa fa-check"></i><b>3.1</b> <span style="color: lightcoral;">Overview</span></a></li>
+<li class="chapter" data-level="3.2" data-path="literature-review.html"><a href="literature-review.html#lesson-2"><i class="fa fa-check"></i><b>3.2</b> <span style="color: lightcoral;">Lesson</span></a></li>
+<li class="chapter" data-level="3.3" data-path="literature-review.html"><a href="literature-review.html#assignment-1"><i class="fa fa-check"></i><b>3.3</b> <span style="color: lightcoral;">Assignment</span></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="datawork.html"><a href="datawork.html"><i class="fa fa-check"></i><b>4</b> Working with Data</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="datawork.html"><a href="datawork.html#overview-3"><i class="fa fa-check"></i><b>4.1</b> <span style="color: mediumorchid;">Overview</span></a></li>
+<li class="chapter" data-level="4.2" data-path="datawork.html"><a href="datawork.html#lesson-3"><i class="fa fa-check"></i><b>4.2</b> <span style="color: mediumorchid;">Lesson</span></a></li>
+<li class="chapter" data-level="4.3" data-path="datawork.html"><a href="datawork.html#syntax"><i class="fa fa-check"></i><b>4.3</b> <span style="color: mediumorchid;">Syntax</span></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="datawork.html"><a href="datawork.html#loading-a-data-set"><i class="fa fa-check"></i><b>4.3.1</b> <span style="color: mediumorchid;">loading a data set</span></a></li>
+<li class="chapter" data-level="4.3.2" data-path="datawork.html"><a href="datawork.html#sorting-data"><i class="fa fa-check"></i><b>4.3.2</b> <span style="color: mediumorchid;">sorting data</span></a></li>
+<li class="chapter" data-level="4.3.3" data-path="datawork.html"><a href="datawork.html#displaying-frequency-tables"><i class="fa fa-check"></i><b>4.3.3</b> <span style="color: mediumorchid;">displaying frequency tables</span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="datawork.html"><a href="datawork.html#assignment-2"><i class="fa fa-check"></i><b>4.4</b> <span style="color: mediumorchid;">Assignment </span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-management.html"><a href="data-management.html"><i class="fa fa-check"></i><b>5</b> Data Management</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="data-management.html"><a href="data-management.html#overview-4"><i class="fa fa-check"></i><b>5.1</b> <span style="color: palevioletred;">Overview </span></a></li>
+<li class="chapter" data-level="5.2" data-path="data-management.html"><a href="data-management.html#lesson-4"><i class="fa fa-check"></i><b>5.2</b> <span style="color: palevioletred;">Lesson </span></a></li>
+<li class="chapter" data-level="5.3" data-path="data-management.html"><a href="data-management.html#syntax-1"><i class="fa fa-check"></i><b>5.3</b> <span style="color: palevioletred;">Syntax</span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="data-management.html"><a href="data-management.html#basic-operations"><i class="fa fa-check"></i><b>5.3.1</b> <span style="color: palevioletred;">basic operations</span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="data-management.html"><a href="data-management.html#need-to-identify-missing-data"><i class="fa fa-check"></i><b>5.3.2</b> <span style="color: palevioletred;">need to identify missing data</span></a></li>
+<li class="chapter" data-level="5.3.3" data-path="data-management.html"><a href="data-management.html#recoding-based-on-skip-patterns"><i class="fa fa-check"></i><b>5.3.3</b> <span style="color: palevioletred;">recoding based on skip patterns</span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="data-management.html"><a href="data-management.html#string-variable-to-numeric-variable"><i class="fa fa-check"></i><b>5.3.4</b> <span style="color: palevioletred;">string variable to numeric variable</span></a></li>
+<li class="chapter" data-level="5.3.5" data-path="data-management.html"><a href="data-management.html#collapsing-response-categories"><i class="fa fa-check"></i><b>5.3.5</b> <span style="color: palevioletred;">collapsing response categories</span></a></li>
+<li class="chapter" data-level="5.3.6" data-path="data-management.html"><a href="data-management.html#aggregating-across-variables"><i class="fa fa-check"></i><b>5.3.6</b> <span style="color: palevioletred;">aggregating across variables</span></a></li>
+<li class="chapter" data-level="5.3.7" data-path="data-management.html"><a href="data-management.html#create-a-quantitative-variable"><i class="fa fa-check"></i><b>5.3.7</b> <span style="color: palevioletred;">Create a quantitative variable</span></a></li>
+<li class="chapter" data-level="5.3.8" data-path="data-management.html"><a href="data-management.html#labeling-variables"><i class="fa fa-check"></i><b>5.3.8</b> <span style="color: palevioletred;">labeling variables</span></a></li>
+<li class="chapter" data-level="5.3.9" data-path="data-management.html"><a href="data-management.html#renaming-variables"><i class="fa fa-check"></i><b>5.3.9</b> <span style="color: palevioletred;">renaming variables</span></a></li>
+<li class="chapter" data-level="5.3.10" data-path="data-management.html"><a href="data-management.html#labeling-variable-responsesvalues"><i class="fa fa-check"></i><b>5.3.10</b> <span style="color: palevioletred;">labeling variable responses/values</span></a></li>
+<li class="chapter" data-level="5.3.11" data-path="data-management.html"><a href="data-management.html#sample-subset"><i class="fa fa-check"></i><b>5.3.11</b> <span style="color: palevioletred;">sample subset</span></a></li>
+<li class="chapter" data-level="5.3.12" data-path="data-management.html"><a href="data-management.html#comparison-groups"><i class="fa fa-check"></i><b>5.3.12</b> <span style="color: palevioletred;">comparison groups</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-management.html"><a href="data-management.html#assignment-3"><i class="fa fa-check"></i><b>5.4</b> <span style="color: palevioletred;">Assignment</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="univariate-graphing.html"><a href="univariate-graphing.html"><i class="fa fa-check"></i><b>6</b> Univariate Graphing</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="univariate-graphing.html"><a href="univariate-graphing.html#overview-5"><i class="fa fa-check"></i><b>6.1</b> <span style="color: forestgreen;">Overview </span></a></li>
+<li class="chapter" data-level="6.2" data-path="univariate-graphing.html"><a href="univariate-graphing.html#lesson-5"><i class="fa fa-check"></i><b>6.2</b> <span style="color: forestgreen;">Lesson </span></a></li>
+<li class="chapter" data-level="6.3" data-path="univariate-graphing.html"><a href="univariate-graphing.html#syntax-2"><i class="fa fa-check"></i><b>6.3</b> <span style="color: forestgreen;">Syntax</span></a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="univariate-graphing.html"><a href="univariate-graphing.html#univariate-graph-categorical-variable"><i class="fa fa-check"></i><b>6.3.1</b> <span style="color: forestgreen;">univariate graph (categorical variable)</span></a></li>
+<li class="chapter" data-level="6.3.2" data-path="univariate-graphing.html"><a href="univariate-graphing.html#univariate-graph-quantitative-variable"><i class="fa fa-check"></i><b>6.3.2</b> <span style="color: forestgreen;">univariate graph (quantitative variable)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="univariate-graphing.html"><a href="univariate-graphing.html#assignment-4"><i class="fa fa-check"></i><b>6.4</b> <span style="color: forestgreen;">Assignment</span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html"><i class="fa fa-check"></i><b>7</b> Bivariate Graphing</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#overview-6"><i class="fa fa-check"></i><b>7.1</b> <span style="color: blue;">Overview </span></a></li>
+<li class="chapter" data-level="7.2" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#lesson-6"><i class="fa fa-check"></i><b>7.2</b> <span style="color: blue;">Lesson </span></a></li>
+<li class="chapter" data-level="7.3" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#syntax-3"><i class="fa fa-check"></i><b>7.3</b> <span style="color: blue;">Syntax </span></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#bivariate-graph-categorical-explanatory-categorical-response"><i class="fa fa-check"></i><b>7.3.1</b> <span style="color: blue;"><font size="4">bivariate graph (categorical explanatory, categorical response)</span></font></a></li>
+<li class="chapter" data-level="7.3.2" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#bivariate-graph-categorical-explanatory-quantitative-response"><i class="fa fa-check"></i><b>7.3.2</b> <span style="color: blue;"><font size="4">bivariate graph (categorical explanatory, quantitative response)</span></font></a></li>
+<li class="chapter" data-level="7.3.3" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#bivariate-graph-quantitative-explanatory-quantitative-response"><i class="fa fa-check"></i><b>7.3.3</b> <span style="color: blue;"><font size="4">bivariate graph (quantitative explanatory, quantitative response)</span></font></a></li>
+<li class="chapter" data-level="7.3.4" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#rd-variable-graph-categorical-explanatory-categorical-response-categorical-3rd-variable"><i class="fa fa-check"></i><b>7.3.4</b> <span style="color: blue;"><font size="4">3rd variable graph (categorical explanatory, categorical response, categorical 3rd variable)</span></font></a></li>
+<li class="chapter" data-level="7.3.5" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#rd-variable-graph-categorical-explanatory-quantitative-response-categorical-3rd-variable"><i class="fa fa-check"></i><b>7.3.5</b> <span style="color: blue;"><font size="4">3rd variable graph (categorical explanatory, quantitative response, categorical 3rd variable)</span></font></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="bivariate-graphing.html"><a href="bivariate-graphing.html#assignment-5"><i class="fa fa-check"></i><b>7.4</b> <span style="color: blue;">Assignment</span></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html"><i class="fa fa-check"></i><b>8</b> Hypothesis Testing</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#overview-7"><i class="fa fa-check"></i><b>8.1</b> <span style="color: deeppink;">Overview </span></a></li>
+<li class="chapter" data-level="8.2" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#lesson-7"><i class="fa fa-check"></i><b>8.2</b> <span style="color: deeppink;">Lesson</span></a></li>
+<li class="chapter" data-level="8.3" data-path="hypothesis-testing.html"><a href="hypothesis-testing.html#assignment-6"><i class="fa fa-check"></i><b>8.3</b> <span style="color: deeppink;">Assignment</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html"><i class="fa fa-check"></i><b>9</b> Analysis of Variance</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#overview-8"><i class="fa fa-check"></i><b>9.1</b> <span style="color: darkturquoise;">Overview </span></a></li>
+<li class="chapter" data-level="9.2" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#lesson-8"><i class="fa fa-check"></i><b>9.2</b> <span style="color: darkturquoise;">Lesson </span></a></li>
+<li class="chapter" data-level="9.3" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#syntax-4"><i class="fa fa-check"></i><b>9.3</b> <span style="color: darkturquoise;">Syntax </span></a></li>
+<li class="chapter" data-level="9.4" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html#assignment-7"><i class="fa fa-check"></i><b>9.4</b> <span style="color: darkturquoise;">Assignment </span></a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chi-square-test-of-independence.html"><a href="chi-square-test-of-independence.html"><i class="fa fa-check"></i><b>10</b> <font size="5">Chi-Square Test of Independence</font></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chi-square-test-of-independence.html"><a href="chi-square-test-of-independence.html#overview-9"><i class="fa fa-check"></i><b>10.1</b> <span style="color: darkmagenta;">Overview </span></a></li>
+<li class="chapter" data-level="10.2" data-path="chi-square-test-of-independence.html"><a href="chi-square-test-of-independence.html#lesson-9"><i class="fa fa-check"></i><b>10.2</b> <span style="color: darkmagenta;">Lesson </span></a></li>
+<li class="chapter" data-level="10.3" data-path="chi-square-test-of-independence.html"><a href="chi-square-test-of-independence.html#syntax-5"><i class="fa fa-check"></i><b>10.3</b> <span style="color: darkmagenta;">Syntax </span></a></li>
+<li class="chapter" data-level="10.4" data-path="chi-square-test-of-independence.html"><a href="chi-square-test-of-independence.html#assignment-8"><i class="fa fa-check"></i><b>10.4</b> <span style="color: darkmagenta;">Assignment </span></a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="pearson-correlation.html"><a href="pearson-correlation.html"><i class="fa fa-check"></i><b>11</b> Pearson Correlation</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="pearson-correlation.html"><a href="pearson-correlation.html#overview-10"><i class="fa fa-check"></i><b>11.1</b> <span style="color: darkseagreen;">Overview </span></a></li>
+<li class="chapter" data-level="11.2" data-path="pearson-correlation.html"><a href="pearson-correlation.html#lesson-10"><i class="fa fa-check"></i><b>11.2</b> <span style="color: darkseagreen;">Lesson</span></a></li>
+<li class="chapter" data-level="11.3" data-path="pearson-correlation.html"><a href="pearson-correlation.html#syntax-6"><i class="fa fa-check"></i><b>11.3</b> <span style="color: darkseagreen;">Syntax </span></a></li>
+<li class="chapter" data-level="11.4" data-path="pearson-correlation.html"><a href="pearson-correlation.html#assignment-9"><i class="fa fa-check"></i><b>11.4</b> <span style="color: darkseagreen;">Assignment </span></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="moderation.html"><a href="moderation.html"><i class="fa fa-check"></i><b>12</b> Moderation</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="moderation.html"><a href="moderation.html#overview-11"><i class="fa fa-check"></i><b>12.1</b> <span style="color: dodgerblue;">Overview </span></a></li>
+<li class="chapter" data-level="12.2" data-path="moderation.html"><a href="moderation.html#lesson-11"><i class="fa fa-check"></i><b>12.2</b> <span style="color: dodgerblue;">Lesson </span></a></li>
+<li class="chapter" data-level="12.3" data-path="moderation.html"><a href="moderation.html#syntax-7"><i class="fa fa-check"></i><b>12.3</b> <span style="color: dodgerblue;">Syntax </span></a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="moderation.html"><a href="moderation.html#moderation-for-anova"><i class="fa fa-check"></i><b>12.3.1</b> <span style="color: dodgerblue;">moderation for ANOVA </span></a></li>
+<li class="chapter" data-level="12.3.2" data-path="moderation.html"><a href="moderation.html#moderation-for-chi-square-test-of-independence"><i class="fa fa-check"></i><b>12.3.2</b> <span style="color: dodgerblue;">moderation for chi-square test of independence </span></a></li>
+<li class="chapter" data-level="12.3.3" data-path="moderation.html"><a href="moderation.html#moderation-for-pearson-correlation"><i class="fa fa-check"></i><b>12.3.3</b> <span style="color: dodgerblue;">moderation for pearson correlation: </span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="moderation.html"><a href="moderation.html#assignment-10"><i class="fa fa-check"></i><b>12.4</b> <span style="color: dodgerblue;">Assignment </span></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="the-question-of-causation.html"><a href="the-question-of-causation.html"><i class="fa fa-check"></i><b>13</b> The Question of Causation</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="the-question-of-causation.html"><a href="the-question-of-causation.html#overview-12"><i class="fa fa-check"></i><b>13.1</b> <span style="color: salmon;">Overview </span></a></li>
+<li class="chapter" data-level="13.2" data-path="the-question-of-causation.html"><a href="the-question-of-causation.html#lesson-12"><i class="fa fa-check"></i><b>13.2</b> <span style="color: salmon;">Lesson </span></a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="multivariate-modeling.html"><a href="multivariate-modeling.html"><i class="fa fa-check"></i><b>14</b> Multivariate Modeling</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="multivariate-modeling.html"><a href="multivariate-modeling.html#overview-13"><i class="fa fa-check"></i><b>14.1</b> <span style="color: mediumseagreen;">Overview </span></a></li>
+<li class="chapter" data-level="14.2" data-path="multivariate-modeling.html"><a href="multivariate-modeling.html#lesson-13"><i class="fa fa-check"></i><b>14.2</b> <span style="color: mediumseagreen;">Lesson </span></a></li>
+<li class="chapter" data-level="14.3" data-path="multivariate-modeling.html"><a href="multivariate-modeling.html#syntax-8"><i class="fa fa-check"></i><b>14.3</b> <span style="color: mediumseagreen;">Syntax </span></a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="multivariate-modeling.html"><a href="multivariate-modeling.html#multiple-regression"><i class="fa fa-check"></i><b>14.3.1</b> <span style="color: mediumseagreen;">multiple regression</span></a></li>
+<li class="chapter" data-level="14.3.2" data-path="multivariate-modeling.html"><a href="multivariate-modeling.html#logistic-regression"><i class="fa fa-check"></i><b>14.3.2</b> <span style="color: mediumseagreen;">logistic regression</span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="multivariate-modeling.html"><a href="multivariate-modeling.html#assignment-11"><i class="fa fa-check"></i><b>14.4</b> <span style="color: mediumseagreen;">Assignment </span></a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="posters.html"><a href="posters.html"><i class="fa fa-check"></i><b>15</b> Posters</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="posters.html"><a href="posters.html#overview-14"><i class="fa fa-check"></i><b>15.1</b> <span style="color: skyblue;">Overview </span></a></li>
+<li class="chapter" data-level="15.2" data-path="posters.html"><a href="posters.html#lesson-14"><i class="fa fa-check"></i><b>15.2</b> <span style="color: skyblue;">Lesson </span></a></li>
+<li class="chapter" data-level="15.3" data-path="posters.html"><a href="posters.html#assignment-12"><i class="fa fa-check"></i><b>15.3</b> <span style="color: skyblue;">Assignment </span></a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="acknowledgments.html"><a href="acknowledgments.html"><i class="fa fa-check"></i>Acknowledgments</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">PASSION-DRIVEN STATISTICS</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-question-of-causation" class="section level1" number="13">
+<h1><span class="header-section-number">Chapter 13</span> The Question of Causation</h1>
+<p><img src="images/flowerstrip2.png" /></p>
+<blockquote>
+“Statistics are no substitute for judgment.”
+ 
+ <strong>— Henry Clay </strong>
+</div>
+</blockquote>
+<div id="overview-12" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> <span style="color: salmon;">Overview </span></h2>
+<p>You have tested for statistical associations and learned how to determine if a third variable moderates the strength and/or direction of a bivariate relationship. It is important to remember that your results should be considered in the context of observational data. Put simply, a significant association does not mean a causal relationship has been established. It is important not to use causal language in the presentation of your findings.</p>
+</div>
+<div id="lesson-12" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> <span style="color: salmon;">Lesson </span></h2>
+<p>Learn about confounding variables (i.e., those variables that explain or account for a significant association between two variables). Consider the ethical reasons behind why some experiments cannot be conducted. Compare and contrast a prospective study and retrospective study in helping determine if a causal relationship exists between two variables. Understand that lurking variables make a relationship between two variables only appear strong. See how some relationships cannot be examined by cause and effect experiments, but with enough non-experimental evidence from many different sources we can make confident causal conclusions. Click <a href="https://youtu.be/Bg9eEcs9cVY"><strong>HERE</strong></a> to watch the video lesson.</p>
+<hr />
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="moderation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multivariate-modeling.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/13-causation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
