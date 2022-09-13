@@ -417,7 +417,7 @@ proc freq;
 <p><strong>R</strong></p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="moderation.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">by</span>(myData, myData<span class="sc">$</span>CategThirdVar, <span class="cf">function</span>(x)</span>
 <span id="cb115-2"><a href="moderation.html#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(<span class="fu">chisq.test</span>(x<span class="sc">$</span>CategResponseVar, x<span class="sc">$</span>CategExplanatoryVar),</span>
-<span id="cb115-3"><a href="moderation.html#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(x<span class="sc">$</span>CategResponseVar, x<span class="sc">$</span>CategExplanatoryVar<span class="sc">$</span>observed),</span>
+<span id="cb115-3"><a href="moderation.html#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(x<span class="sc">$</span>CategResponseVar, x<span class="sc">$</span>CategExplanatoryVar<span class="sc">)$</span>observed,</span>
 <span id="cb115-4"><a href="moderation.html#cb115-4" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">chisq.test</span>(x<span class="sc">$</span>CategResponseVar,</span>
 <span id="cb115-5"><a href="moderation.html#cb115-5" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>CategExplanatoryVar) <span class="sc">$</span>observed, <span class="dv">2</span>))) <span class="co"># column %s</span></span></code></pre></div>
 <p><strong>Python</strong></p>
